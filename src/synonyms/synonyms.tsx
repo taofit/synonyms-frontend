@@ -1,5 +1,6 @@
 import React from "react";
 
+export const BASE_URL = 'https://frantic-duck-waders.cyclic.cloud/';
 export const Home = () => {
   return (
     <div className="grid p-6 place-content-center bg-indigo-100 text-black">

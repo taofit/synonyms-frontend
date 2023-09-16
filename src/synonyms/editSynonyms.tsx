@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { BASE_URL } from "./synonyms";
 
 const EditSynonyms = () => {
   const [baseWord, setBaseWord] = useState("");
@@ -40,7 +41,7 @@ const EditSynonyms = () => {
     }
 
     const rawResponse = await fetch(
-      `http://localhost:5001/api/synonyms?search=${baseWord}`,
+      `${BASE_URL}api/synonyms?search=${baseWord}`,
       {
         method: "GET",
         mode: "cors",
@@ -76,7 +77,7 @@ const EditSynonyms = () => {
       toast.error("Synonyms has empty value");
       return;
     }
-    const rawResponse = await fetch("http://localhost:5001/api/synonyms", {
+    const rawResponse = await fetch(`${BASE_URL}api/synonyms`, {
       method: "POST",
       mode: "cors",
       headers: {

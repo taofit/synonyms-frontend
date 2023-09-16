@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { BASE_URL } from "./synonyms";
 
 const GetSynonyms = () => {
   const [baseSynonyms, setBaseSynonyms] = useState("");
@@ -20,7 +21,7 @@ const GetSynonyms = () => {
     }
 
     const rawResponse = await fetch(
-      `http://localhost:5001/api/synonyms?search=${baseSynonyms}`,
+      `${BASE_URL}api/synonyms?search=${baseSynonyms}`,
       {
         method: "GET",
         mode: "cors",
