@@ -37,6 +37,13 @@ const AddSynonyms = () => {
       toast.error("Synonyms has empty value");
       return;
     }
+    const duplicateElms = inputSynonyms.filter(
+      (item: string, index: number) => inputSynonyms.indexOf(item) !== index
+    );
+    if (duplicateElms.length > 0) {
+      toast.error("Synonyms contain same words");
+      return;
+    }
     const rawResponse = await fetch(`${BASE_URL}api/synonyms`, {
       method: "POST",
       mode: "cors",
