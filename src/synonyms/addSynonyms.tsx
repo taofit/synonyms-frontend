@@ -52,11 +52,12 @@ const AddSynonyms = () => {
       },
       body: JSON.stringify(inputSynonyms.map((w) => w.trim())),
     });
+    const { msg } = await rawResponse.json();
     if (!rawResponse.ok) {
-      toast.error("error sent the synonyms to the backend");
+      toast.error("Error: " + msg);
       return;
     }
-    toast.success("Successfully sent synonyms to the backend");
+    toast.success(msg);
   };
 
   return (
